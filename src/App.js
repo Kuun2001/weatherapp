@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 
 const api = {
-    key: "d6882e7723c0cc7bc1133307b1e63073" ,
+    key: "6e4f5915bf4e0f9181abbe1409077323" ,
     base: "https://openweathermap.org/data/2.5/"
 }
 
@@ -37,9 +37,9 @@ function App() {
     }, [searchCity])
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        setSearchCity(setSearchInput)
-    }
+      e.preventDefault();
+      setSearchCity(searchInput);
+    };
 
   return (
     <div>
