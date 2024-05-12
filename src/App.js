@@ -20,11 +20,11 @@ function App() {
             if(!searchCity) return;
             setLoading(true);
             try {
-                const url = `${api.base}weather?q=${searchCity}&unnits=metric&APPID=${api.key}`
-                const response = await fetch(url, { mode: 'no-cors'});
+                const url = `${api.base}weather?q=${searchCity}&units=metric&APPID=${api.key}`
+                const response = await fetch(url);
                 const data = await response.json();
                 if (response.ok){
-                 setWeatherInfo(`${data.name}, ${data.sys.country}, ${data.weather[0]}, ${data.description}`)
+                 setWeatherInfo(`${data.name}, ${data.sys.country}, ${data.weather[0].description}, ${data.main.temp}`)
                  setErrorMessage("");
                 }
                 setErrorMessage(data.message)
