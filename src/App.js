@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react'
 
 const api = {
-    key: "6e4f5915bf4e0f9181abbe1409077323" ,
-    base: "https://openweathermap.org/data/2.5/"
+    key: "d6882e7723c0cc7bc1133307b1e63073" ,
+    base: "https://api.openweathermap.org/data/2.5/"
 }
 
 
@@ -21,7 +21,7 @@ function App() {
             setLoading(true);
             try {
                 const url = `${api.base}weather?q=${searchCity}&unnits=metric&APPID=${api.key}`
-                const response = await fetch(url);
+                const response = await fetch(url, { mode: 'no-cors'});
                 const data = await response.json();
                 if (response.ok){
                  setWeatherInfo(`${data.name}, ${data.sys.country}, ${data.weather[0]}, ${data.description}`)
